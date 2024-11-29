@@ -1,0 +1,21 @@
+name: InfiniteBucketsX
+version: '${project.version}'
+main: com.pluginsell.infinitebucketsx.Main
+authors: [EggZackley]
+description: Infinite Buckets Selector GUI, and customizable cost for each use.
+website: https://discord.gg/CM3rAj3zbc
+loadbefore: [InfiniteBuckets]
+depend: [InfiniteBuckets]
+softdepend: [EssentialsX]
+commands:
+  infinitebucketsx:
+    usage: /<command>
+    aliases:
+      - infinitebucketx
+      - infinitebx
+      - infbucketsx
+      - infbucketx
+      - infbx
+      - ibx
+      - ibucketsx
+      - ibucketx

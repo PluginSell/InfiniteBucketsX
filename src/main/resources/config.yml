@@ -1,0 +1,25 @@
+# If this is set to true, you will need to have the InfiniteBuckets plugin installed.
+# InfiniteBuckets: https://www.spigotmc.org/resources/infinite-buckets.120991/
+# Set whether you want to use separate infinite buckets, or use a GUI to change the bucket type.
+separate-buckets: false
+# If separate-buckets is set to true, you may set the options required in order to change the bucket type.
+# Supported options: LEFT_CLICK, SHIFT_LEFT_CLICK, SHIFT_RIGHT_CLICK. Default: LEFT_CLICK
+bucket-change: LEFT_CLICK
+lava-bucket:
+  # Set the amount of money taken per bucket use. Set to zero to not take or require any money.
+  # Currently, only EssentialsX economy is supported. VaultAPI must be installed.
+  # EssentialsX: https://essentialsx.net/downloads.html
+  # VaultAPI: https://www.spigotmc.org/resources/vault.34315/
+  cost: 0
+  # If this is set to true, infinite buckets will have a total amount use before they are empty.
+  toggle-uses: true
+  # If this is set to true, empty infinite buckets will not be deleted when they are empty.
+  toggle-refill: true
+water-bucket:
+  cost: 100
+  toggle-uses: true
+  toggle-refill: true
+# Setting this to true, will notify the player every time they spend money using an infinite bucket.
+spend-notifications: true
+# Setting this to true, will notify the player if they do not have enough money to use an infinite bucket.
+insufficient-notifications: true
