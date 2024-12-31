@@ -1,7 +1,5 @@
 package com.pluginsell.infinitebucketsx.utils;
 
-import com.pluginsell.infiniteBuckets.BucketItems;
-import com.pluginsell.infinitebucketsx.Main;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
@@ -19,17 +17,9 @@ public class UsesBucketItems {
         }
         ItemStack itemStack;
         if (type.equals("W")) {
-            if(Main.data.getConfig().getBoolean("water-bucket.toggle-uses") && uses > -1) {
-                itemStack = (new UsesBucketItems()).waterBucket(uses);
-            } else {
-                itemStack = new BucketItems().getBucket("W");
-            }
+            itemStack = (new UsesBucketItems()).waterBucket(uses);
         } else {
-            if(Main.data.getConfig().getBoolean("lava-bucket.toggle-uses") && uses > -1) {
-                itemStack = (new UsesBucketItems()).lavaBucket(uses);
-            } else {
-                itemStack = new BucketItems().getBucket("L");
-            }
+            itemStack = (new UsesBucketItems()).lavaBucket(uses);
         }
         return itemStack;
     }
@@ -43,8 +33,10 @@ public class UsesBucketItems {
         lore.add("");
         lore.add("§bRight click this bucket to use.");
         lore.add("§bThis bucket will never empty!");
+        if(uses > 0) {
         lore.add("");
-        lore.add("§6Uses: §e" + uses);
+            lore.add("§6Uses: §e" + uses);
+        }
         bucketMeta.setLore(lore);
         waterBucket.setItemMeta(bucketMeta);
         waterBucket.addUnsafeEnchantment(Enchantment.DURABILITY, 1);
@@ -60,8 +52,10 @@ public class UsesBucketItems {
         lore.add("");
         lore.add("§bRight click this bucket to use.");
         lore.add("§bThis bucket will never empty!");
-        lore.add("");
-        lore.add("§6Uses: §e" + uses);
+        if(uses > 0) {
+            lore.add("");
+            lore.add("§6Uses: §e" + uses);
+        }
         bucketMeta.setLore(lore);
         lavaBucket.setItemMeta(bucketMeta);
         lavaBucket.addUnsafeEnchantment(Enchantment.DURABILITY, 1);

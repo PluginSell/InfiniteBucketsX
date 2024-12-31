@@ -16,7 +16,6 @@ public final class Main extends JavaPlugin {
     @Override
     public void onEnable() {
         loadConfigManager();
-        checkPlugin();
         Bukkit.getConsoleSender().sendMessage(prefix + color("&aPlugin has been enabled."));
         getServer().getPluginManager().registerEvents(new BucketEvents(), this);
         getCommand("infinitebucketsx").setExecutor(new BucketCommand());
@@ -59,20 +58,6 @@ public final class Main extends JavaPlugin {
 
     public static Economy getEconomy() {
         return econ;
-    }
-
-    public static void checkPlugin() {
-        Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("InfiniteBuckets");
-        if (plugin == null) {
-            disablePlugin();
-        } else {
-            if (!plugin.isEnabled()) {
-                Bukkit.getServer().getPluginManager().enablePlugin(plugin);
-                if (!plugin.isEnabled()) {
-                    disablePlugin();
-                }
-            }
-        }
     }
 
     public static void disablePlugin() {

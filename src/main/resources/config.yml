@@ -1,5 +1,3 @@
-# If this is set to true, you will need to have the InfiniteBuckets plugin installed.
-# InfiniteBuckets: https://www.spigotmc.org/resources/infinite-buckets.120991/
 # Set whether you want to use separate infinite buckets, or use a GUI to change the bucket type.
 separate-buckets: false
 # If separate-buckets is set to true, you may set the options required in order to change the bucket type.

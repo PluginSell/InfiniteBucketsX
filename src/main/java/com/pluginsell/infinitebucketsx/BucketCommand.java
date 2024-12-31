@@ -1,6 +1,5 @@
 package com.pluginsell.infinitebucketsx;
 
-import com.pluginsell.infiniteBuckets.BucketCommands;
 import com.pluginsell.infinitebucketsx.utils.UsesBucketItems;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -9,12 +8,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.permissions.PermissionAttachmentInfo;
 
-import static com.pluginsell.infinitebucketsx.Main.checkPlugin;
-
 public class BucketCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        checkPlugin();
         boolean hasPerm = sender instanceof Player;
         for (PermissionAttachmentInfo perm : sender.getEffectivePermissions()) {
             if (perm.getPermission().startsWith("infinitebucketsx.")) {

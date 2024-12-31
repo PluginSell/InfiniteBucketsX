@@ -1,15 +1,11 @@
 package com.pluginsell.infinitebucketsx;
 
-import com.pluginsell.infiniteBuckets.BucketItems;
 import com.pluginsell.infinitebucketsx.utils.UsesBucketItems;
 import net.milkbowl.vault.economy.Economy;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.HandlerList;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -17,13 +13,10 @@ import org.bukkit.event.player.PlayerBucketEmptyEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.plugin.RegisteredListener;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-import static com.pluginsell.infinitebucketsx.Main.checkPlugin;
 import static com.pluginsell.infinitebucketsx.Main.initEconomy;
 
 public class BucketEvents implements Listener {
@@ -31,7 +24,6 @@ public class BucketEvents implements Listener {
     void bucketChangeEvent(PlayerInteractEvent e) {
         Player player = e.getPlayer();
         if (player.getItemInHand() != null && player.getItemInHand().hasItemMeta() && (checkBucket(player.getItemInHand()) != null)) {
-            checkPlugin();
             if (!Main.data.getConfig().getBoolean("separate-buckets")) {
                 String change = Main.data.getConfig().getString("bucket-change");
                 if (change == null) {
@@ -61,7 +53,6 @@ public class BucketEvents implements Listener {
         if (!(e.getWhoClicked() instanceof Player)) return;
         Player player = (Player) e.getWhoClicked();
         if (e.getInventory().getName().equals(new BucketGUI().bucketInv().getName())) {
-            checkPlugin();
             e.setCancelled(true);
             ItemStack bucket = null;
             int uses = getUses(player.getItemInHand());
@@ -94,7 +85,6 @@ public class BucketEvents implements Listener {
             e.setCancelled(true);
             Player player = e.getPlayer();
             ItemMeta meta = itemStack.getItemMeta();
-            checkPlugin();
             int cost = 0;
             if (Main.data.getConfig().contains(bucketType + ".cost")) {
                 cost = Main.data.getConfig().getInt(bucketType + ".cost");
